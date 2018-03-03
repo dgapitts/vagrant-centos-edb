@@ -1,25 +1,27 @@
 #! /bin/bash
 if [ ! -f /home/vagrant/already-installed-flag ]
 then
+  echo "GENERAL YUM UPDATE"
+  yum -y update
   echo "ADD EXTRA ALIAS VIA .bashrc"
-  cat /vagrant/bashrc.append.txt >> /home/vagrant/.bashrc
   yum install epel-release-latest-7.noarch.rpm
-  #echo "GENERAL YUM UPDATE"
-  #yum -y update
-  #echo "INSTALL GIT"
-  #yum -y install git
-  #echo "INSTALL VIM"
-  #yum -y install vim
-  #echo "INSTALL TREE"
-  #yum -y install tree
-  #echo "INSTALL UNZIP"
-  #yum  -y install unzip curl wget
-
+  echo "INSTALL GIT"
+  yum -y install git
+  echo "INSTALL VIM"
+  yum -y install vim
+  echo "INSTALL TREE"
+  yum -y install tree
+  echo "INSTALL UNZIP"
+  yum  -y install unzip curl wget
   
   useradd -p edb enterprisedb
-  cp edb-as96-meta-9.6.2.7-2-linux-x64.tar.gz /tmp
-  cd /tmp
-  tar -zxvf edb-as96-meta-9.6.2.7-2-linux-x64.tar.gz 
+  cat /vagrant/bashrc.append.txt >> /home/vagrant/.bashrc
+  cat /vagrant/bashrc.append.txt >> /root/.bashrc 
+  cat /vagrant/bashrc.append.txt >> /home/enterprisedb/.bashrc 
+  cat /vagrant/bash_profile.enterprisedb.append.txt >> /home/enterprisedb/.bash_profile
+  cp  /vagrant/edb-as* /tmp
+  cd  /tmp
+  tar -zxvf edb-as*
 
   #yum -y update
   #echo "install X11 server"

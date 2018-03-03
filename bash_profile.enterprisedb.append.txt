@@ -1,0 +1,5 @@
+PATH=/opt/edb/as9.6/bin:$PATH:$HOME/.local/bin:$HOME/bin
+PGDATA=/opt/edb/as9.6/data
+PGPORT=5444
+PGUSER=enterprisedb
+export PATH PGDATA PGPORT PGUSER
