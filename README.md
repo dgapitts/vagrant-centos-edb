@@ -1,4 +1,4 @@
-
+### Background and pre-requisite edb software download
 This is a simple repository for automating the setup of edb under vagrant.
 
 Please note the actual edb software (e.g. edb-as96-meta-9.6.2.7-2-linux-x64.tar.gz) needs to be downloaded separately from https://www.enterprisedb.com/software-downloads-postgres. You will need an edb account to download the software (and also again during the installer process), you need to the tarball in the project root direct i.e. with the Vagrantfile (this directory is cross-mounted as /vagrant):
@@ -9,6 +9,7 @@ dave@ijsselstein:~/projects/vagrant-centos-edb$ ls
 bash_profile.enterprisedb.append.txt  bashrc.append.txt  edb-as96-meta-9.6.2.7-2-linux-x64.tar.gz  provision.sh  README.md  Vagrantfile
 ```
 
+### Base OS setup via 'vagrant up'
 
 After this, running 'vagrant up' on my local machine (ijsselstein):
 
@@ -23,10 +24,9 @@ sys	0m2.312s
 
 ```
 
-
+### Run edb installer in text-mode (I mostly selected the default options)
 
 Finally run 'vagrant ssh' and follow the edb installer in text-mode
-
 
 ```
 dave@ijsselstein:~/projects/vagrant-centos-edb$ vagrant ssh
@@ -279,7 +279,9 @@ Please wait while Setup installs EDB Postgres Advanced Server on your computer.
  #
 ```
 
-the vagrant installer has already added the require Postgres environment variables:
+### Finally check via connecting edb-psql
+
+The vagrant installer has already added the require Postgres environment variables:
 
 ```
 dave@ijsselstein:~/projects/vagrant-centos-edb$ cat bash_profile.enterprisedb.append.txt 
